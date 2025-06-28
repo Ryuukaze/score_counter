@@ -66,4 +66,21 @@ body {
       margin: 5px 0;
     }
   }
-  
+  #setup-section,
+#player-names-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+#setup-section label,
+#setup-section input,
+#setup-section button {
+  margin-top: 5px;
+}
