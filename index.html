@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Board Game Score Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007bff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(() => {
+        console.log("✅ Service Worker Registered");
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 Score Tracker</h1>
+
+    <div id="setup-section">
+      <label for="player-count">Number of players:</label>
+      <input type="number" id="player-count" min="2" max="10" value="2">
+      <button onclick="setupPlayers()">Set Players</button>
+    </div>
+
+    <form id="player-names-form" style="display:none;" onsubmit="startGame(event)">
+      <div id="player-names"></div>
+      <button type="submit">Start Game</button>
+    </form>
+
+    <div id="game-section" style="display:none;">
+      <div id="scoreboard"></div>
+      <button id="end-game" onclick="endGame()">End Game</button>
+      <div id="results">
+        <button id="play-again" style="display:none;" onclick="resetGame()">🔁 Play Again</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
